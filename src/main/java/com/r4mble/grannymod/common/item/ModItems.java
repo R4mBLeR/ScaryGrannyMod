@@ -17,7 +17,6 @@ public class ModItems {
     }
     public static final RegistryObject<Item> ASHES = ITEMS.register("ashes",
             () -> new Item(basicProperties()));
-
     public static final RegistryObject<Item> TOTEM_OF_GRANNY = ITEMS.register("totem_of_granny",
             () -> new TotemOfGranny(basicProperties().stacksTo(1)));
     public static final RegistryObject<Item> ASHES_DIAMOND = ITEMS.register("ashes_diamond",

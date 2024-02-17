@@ -1,5 +1,7 @@
 package com.r4mble.grannymod.common.item;
 
+import com.r4mble.grannymod.common.entity.custom.GrannyEntity;
+import com.r4mble.grannymod.common.entity.custom.ModEntities;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.item.Item;
@@ -20,9 +22,9 @@ public class TotemOfGranny extends Item {
         world.setRainLevel(10);
         world.setThunderLevel(10);
         totem.setCount(0);
-        PigEntity pig = new PigEntity(EntityType.PIG, world);
-        pig.moveTo(context.getClickLocation());
-        world.addFreshEntity(pig);
+        GrannyEntity granny = new GrannyEntity(ModEntities.GRANNY.get(), world);
+        granny.moveTo(context.getClickLocation());
+        world.addFreshEntity(granny);
 
         return super.onItemUseFirst(stack,context);
     }
