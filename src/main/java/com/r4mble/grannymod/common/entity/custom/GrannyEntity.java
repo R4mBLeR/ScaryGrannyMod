@@ -1,6 +1,7 @@
 package com.r4mble.grannymod.common.entity.custom;
 
 
+import com.r4mble.grannymod.common.item.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -21,6 +22,7 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.*;
 
+import java.util.Random;
 import java.util.function.Predicate;
 
 public class GrannyEntity extends ZombieEntity {
@@ -41,7 +43,7 @@ public class GrannyEntity extends ZombieEntity {
         return  MobEntity.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 100.00D)
                 .add(Attributes.MOVEMENT_SPEED, 1.00D)
-                .add(Attributes.ATTACK_DAMAGE, 20.00D)
+                .add(Attributes.ATTACK_DAMAGE, 10.00D)
                 .add(Attributes.ARMOR, 10.00D)
                 .add(Attributes.ATTACK_SPEED, 10.00D)
                 .add(Attributes.FOLLOW_RANGE, 16.00D);
@@ -62,10 +64,6 @@ public class GrannyEntity extends ZombieEntity {
         this.getEntityData().define(DATA_BABY_ID, false);
         this.getEntityData().define(DATA_SPECIAL_TYPE_ID, 0);
         this.getEntityData().define(DATA_DROWNED_CONVERSION_ID, false);
-    }
-
-    public boolean isUnderWaterConverting() {
-        return (Boolean)this.getEntityData().get(DATA_DROWNED_CONVERSION_ID);
     }
 
     public boolean canBreakDoors() {
@@ -219,7 +217,11 @@ public class GrannyEntity extends ZombieEntity {
         super.dropCustomDeathLoot(p_213333_1_, p_213333_2_, p_213333_3_);
         Entity entity = p_213333_1_.getEntity();
         ItemStack itemstack = Items.DIAMOND.getDefaultInstance();
-        this.spawnAtLocation(itemstack, 32);
+        ItemStack sword = ModItems.GRANNY_SWORD.get().getDefaultInstance();
+        Random random = new Random();
+        int diamondCount = random.nextInt(32);
+        this.spawnAtLocation(itemstack, diamondCount);
+        this.spawnAtLocation(sword);
     }
 
     static {
