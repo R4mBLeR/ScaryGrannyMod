@@ -20,7 +20,6 @@ import java.util.Random;
 public class GrannyEntity extends ZombieEntity {
     public GrannyEntity(EntityType<? extends ZombieEntity> p_i48549_1_, World p_i48549_2_) {
         super(p_i48549_1_, p_i48549_2_);
-        setItemInHand(Hand.MAIN_HAND, ModItems.GRANNY_SWORD.get().getDefaultInstance());
         this.xpReward = 1000;
     }
     public static  AttributeModifierMap.MutableAttribute setCustomAttributes(){

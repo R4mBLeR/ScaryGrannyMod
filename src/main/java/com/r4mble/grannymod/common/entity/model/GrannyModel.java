@@ -44,12 +44,12 @@ public class GrannyModel extends EntityModel<GrannyEntity> {
 		leftLeg.texOffs(16, 48).addBox(-1.0F, -12.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
 	}
 	@Override
-	public void setupAnim(GrannyEntity grannyEntity, float limbSwing, float limbSwingAmount,
-						  float ageInTicks, float netHeadYaw, float headPitch) {
-		this.head.xRot = headPitch * ((float)Math.PI / 180F);
-		this.head.yRot = netHeadYaw * ((float)Math.PI / 180F);
-		this.rightLeg.xRot = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+	public void setupAnim(GrannyEntity entityIn, float limbSwing, float limbSwingAmount,
+								  float ageInTicks, float netHeadYaw, float headPitch) {
+		this.head.yRot = netHeadYaw * 0.017453292F;
+		this.head.xRot = headPitch * 0.017453292F;
 		this.leftLeg.xRot = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+		this.rightLeg.xRot = MathHelper.cos(limbSwing * 0.6662F + 3.1415927F) * 1.4F * limbSwingAmount;
 	}
 	@Override
 	public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
