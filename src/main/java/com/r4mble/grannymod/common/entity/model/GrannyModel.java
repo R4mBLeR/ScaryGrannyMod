@@ -4,9 +4,7 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.r4mble.grannymod.common.entity.custom.GrannyEntity;
 import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.model.QuadrupedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
 public class GrannyModel extends EntityModel<GrannyEntity> {
@@ -47,14 +45,12 @@ public class GrannyModel extends EntityModel<GrannyEntity> {
 	}
 
 	@Override
-	public void setupAnim(GrannyEntity grannyEntity, float v, float v1, float v2, float v3, float v4) {
-		this.head.xRot = v4 * 0.017453292F;
-		this.head.yRot = v3 * 0.017453292F;
-		this.body.xRot = 1.5707964F;
-		this.rightLeg.xRot = MathHelper.cos(v * 0.6662F) * 1.4F * v1;
-		this.leftLeg.xRot = MathHelper.cos(v * 0.6662F + 3.1415927F) * 1.4F * v1;
-		this.rightArm.xRot = MathHelper.cos(v * 0.6662F + 3.1415927F) * 1.4F * v1;
-		this.leftArm.xRot = MathHelper.cos(v * 0.6662F) * 1.4F * v1;
+	public void setupAnim(GrannyEntity grannyEntity, float limbSwing, float limbSwingAmount,
+						  float ageInTicks, float netHeadYaw, float headPitch) {
+		this.head.xRot = headPitch * ((float)Math.PI / 180F);
+		this.head.yRot = netHeadYaw * ((float)Math.PI / 180F);
+		this.rightLeg.xRot = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+		this.leftLeg.xRot = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 	}
 
 
