@@ -14,8 +14,6 @@ public class GrannyRender extends MobRenderer<GrannyEntity, GrannyModel> {
     public GrannyRender(EntityRendererManager manager) {
         super(manager, new GrannyModel(), 0.5f);
     }
-
-
     @Override
     public ResourceLocation getTextureLocation(GrannyEntity grannyEntity) {
         return TEXTURE;

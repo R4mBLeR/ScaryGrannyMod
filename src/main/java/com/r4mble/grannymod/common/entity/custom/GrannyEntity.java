@@ -48,7 +48,5 @@ public class GrannyEntity extends ZombieEntity {
         int diamondCount = random.nextInt(32);
         this.spawnAtLocation(itemStack, diamondCount);
         this.spawnAtLocation(sword, 1);
-
     }
-
 }

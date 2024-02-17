@@ -43,7 +43,6 @@ public class GrannyModel extends EntityModel<GrannyEntity> {
 		leftLeg.setPos(0.0F, 24.0F, 0.0F);
 		leftLeg.texOffs(16, 48).addBox(-1.0F, -12.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
 	}
-
 	@Override
 	public void setupAnim(GrannyEntity grannyEntity, float limbSwing, float limbSwingAmount,
 						  float ageInTicks, float netHeadYaw, float headPitch) {
@@ -52,8 +51,6 @@ public class GrannyModel extends EntityModel<GrannyEntity> {
 		this.rightLeg.xRot = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
 		this.leftLeg.xRot = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 	}
-
-
 	@Override
 	public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
 		head.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
@@ -63,7 +60,6 @@ public class GrannyModel extends EntityModel<GrannyEntity> {
 		rightLeg.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
 		leftLeg.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
-
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
 		modelRenderer.xRot = x;
 		modelRenderer.yRot = y;
