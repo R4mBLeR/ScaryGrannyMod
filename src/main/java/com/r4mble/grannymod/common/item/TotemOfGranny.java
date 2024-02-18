@@ -23,8 +23,11 @@ public class TotemOfGranny extends Item {
         world.setRainLevel(10);
         world.setThunderLevel(10);
         totem.setCount(0);
-        GrannyEntity granny = new GrannyEntity(ModEntities.GRANNY.get(), world);
+        /*GrannyEntity granny = new GrannyEntity(ModEntities.GRANNY.get(), world);
         granny.setItemInHand(Hand.MAIN_HAND, ModItems.GRANNY_SWORD.get().getDefaultInstance());
+        granny.moveTo(context.getClickLocation());
+        world.addFreshEntity(granny);*/
+        GrannyEntity granny = new GrannyEntity(ModEntities.GRANNY.get(), world);
         granny.moveTo(context.getClickLocation());
         world.addFreshEntity(granny);
 

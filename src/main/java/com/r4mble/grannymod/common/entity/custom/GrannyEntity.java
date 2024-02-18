@@ -21,23 +21,24 @@ public class GrannyEntity extends ZombieEntity {
     public GrannyEntity(EntityType<? extends ZombieEntity> p_i48549_1_, World p_i48549_2_) {
         super(p_i48549_1_, p_i48549_2_);
         this.xpReward = 1000;
+
     }
     public static  AttributeModifierMap.MutableAttribute setCustomAttributes(){
         return  MobEntity.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 100.00D)
-                .add(Attributes.MOVEMENT_SPEED, 1.00D)
                 .add(Attributes.ATTACK_DAMAGE, 10.00D)
-                .add(Attributes.ARMOR, 10.00D)
-                .add(Attributes.ATTACK_SPEED, 10.00D)
-                .add(Attributes.FOLLOW_RANGE, 16.00D);
+                .add(Attributes.ARMOR, 10.00D);
     }
     protected void registerGoals() {
         super.registerGoals();
         this.goalSelector.addGoal( 1, new NearestAttackableTargetGoal<>( this, PlayerEntity.class, true ) );
         this.goalSelector.addGoal( 2, new NearestAttackableTargetGoal<>( this, MonsterEntity.class, true ) );
         this.goalSelector.addGoal( 3, new NearestAttackableTargetGoal<>( this, AnimalEntity.class, true ) );
-        this.goalSelector.addGoal(4, new ZombieAttackGoal(this, 1.0D, false));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolemEntity.class, true));
+        this.goalSelector.addGoal(4, new ZombieAttackGoal(this, 1.0D, false));
+    }
+    protected boolean convertsInWater() {
+        return false;
     }
     protected void dropCustomDeathLoot(DamageSource p_213333_1_, int p_213333_2_, boolean p_213333_3_) {
         super.dropCustomDeathLoot(p_213333_1_, p_213333_2_, p_213333_3_);
