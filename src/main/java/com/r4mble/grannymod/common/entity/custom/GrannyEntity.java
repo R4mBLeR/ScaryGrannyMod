@@ -11,10 +11,7 @@ import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.ZombieAttackGoal;
-import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.monster.ZombieEntity;
-import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
@@ -33,10 +30,10 @@ public class GrannyEntity extends ZombieEntity {
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.func_233666_p_()
                 .createMutableAttribute(Attributes.MAX_HEALTH, 100.00D)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.2D)
+                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.5D)
                 .createMutableAttribute(Attributes.ATTACK_DAMAGE, 10.00D)
                 .createMutableAttribute(Attributes.ARMOR, 5.00D)
-                .createMutableAttribute(Attributes.ATTACK_SPEED, 3.00D)
+                .createMutableAttribute(Attributes.ATTACK_SPEED, 5.00D)
                 .createMutableAttribute(Attributes.FOLLOW_RANGE, 24.00D);
     }
 
@@ -44,10 +41,7 @@ public class GrannyEntity extends ZombieEntity {
     protected void registerGoals() {
         super.registerGoals();
         this.goalSelector.addGoal( 1, new NearestAttackableTargetGoal<>( this, PlayerEntity.class, true ) );
-        this.goalSelector.addGoal( 2, new NearestAttackableTargetGoal<>( this, MonsterEntity.class, true ) );
-        this.goalSelector.addGoal( 3, new NearestAttackableTargetGoal<>( this, AnimalEntity.class, true ) );
         this.goalSelector.addGoal(4, new ZombieAttackGoal(this, 2.0D, false));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolemEntity.class, true));
     }
 
     protected void dropSpecialItems(DamageSource p_213333_1_, int p_213333_2_, boolean p_213333_3_) {
