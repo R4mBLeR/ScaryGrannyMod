@@ -2,6 +2,7 @@ package com.r4mble.grannymod.common.item;
 
 import com.r4mble.grannymod.common.entity.custom.GrannyEntity;
 import com.r4mble.grannymod.common.entity.custom.ModEntities;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.item.Item;
@@ -18,18 +19,14 @@ public class TotemOfGranny extends Item {
     }
     @Override
     public ActionResultType onItemUseFirst(ItemStack stack, ItemUseContext context) {
-        World world = context.getLevel();
-        ItemStack totem = context.getItemInHand();
-        world.setRainLevel(10);
-        world.setThunderLevel(10);
+        World world = context.getWorld();
+        ItemStack totem = context.getItem();
+        world.setRainStrength(10);
+        world.setThunderStrength(10);
         totem.setCount(0);
-        /*GrannyEntity granny = new GrannyEntity(ModEntities.GRANNY.get(), world);
-        granny.setItemInHand(Hand.MAIN_HAND, ModItems.GRANNY_SWORD.get().getDefaultInstance());
-        granny.moveTo(context.getClickLocation());
-        world.addFreshEntity(granny);*/
         GrannyEntity granny = new GrannyEntity(ModEntities.GRANNY.get(), world);
-        granny.moveTo(context.getClickLocation());
-        world.addFreshEntity(granny);
+        granny.moveForced(context.getHitVec());
+        world.addEntity(granny);
 
         return super.onItemUseFirst(stack,context);
     }

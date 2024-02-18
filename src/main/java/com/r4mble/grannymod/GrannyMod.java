@@ -1,19 +1,13 @@
 package com.r4mble.grannymod;
 
-import com.r4mble.grannymod.common.entity.custom.GrannyEntity;
 import com.r4mble.grannymod.common.entity.custom.ModEntities;
 import com.r4mble.grannymod.common.entity.render.GrannyRender;
 import com.r4mble.grannymod.common.item.ModItems;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.client.renderer.entity.ZombieRenderer;
-import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -67,7 +61,7 @@ public class GrannyMod
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
-        LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().options);
+        LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.GRANNY.get(), GrannyRender::new);
     }
 
