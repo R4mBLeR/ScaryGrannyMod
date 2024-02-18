@@ -3,7 +3,9 @@ package com.r4mble.grannymod.common.entity.custom;
 
 import com.r4mble.grannymod.common.item.ModItems;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -15,6 +17,8 @@ import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
@@ -86,5 +90,13 @@ public class GrannyEntity extends ZombieEntity {
     protected void playStepSound(BlockPos pos, BlockState blockIn)
     {
         this.playSound(SoundEvents.ENTITY_HOGLIN_STEP, 0.20F, 0.5F);
+    }
+    @Override
+    public boolean attackEntityAsMob(Entity entityIn) {
+        if (!super.attackEntityAsMob(entityIn)) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
