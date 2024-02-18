@@ -2,5 +2,7 @@
   "itemGroup.mod_tab": "Granny Mod",
   "item.grannymod.ashes": "Прах",
   "item.grannymod.ashes_diamond": "Алмаз с прахом",
-  "item.grannymod.totem_of_granny": "Тотем бабушки Гренни"
+  "item.grannymod.totem_of_granny": "Тотем Грэнни",
+  "item.grannymod.granny_sword": "Меч Грэнни",
+  "entity.grannymod.granny": "Грэнни"
 }

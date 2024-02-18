@@ -30,9 +30,9 @@ public class GrannyEntity extends ZombieEntity {
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.func_233666_p_()
                 .createMutableAttribute(Attributes.MAX_HEALTH, 100.00D)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.5D)
+                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.4D)
                 .createMutableAttribute(Attributes.ATTACK_DAMAGE, 10.00D)
-                .createMutableAttribute(Attributes.ARMOR, 5.00D)
+                .createMutableAttribute(Attributes.ARMOR, 3.00D)
                 .createMutableAttribute(Attributes.ATTACK_SPEED, 5.00D)
                 .createMutableAttribute(Attributes.FOLLOW_RANGE, 24.00D);
     }
