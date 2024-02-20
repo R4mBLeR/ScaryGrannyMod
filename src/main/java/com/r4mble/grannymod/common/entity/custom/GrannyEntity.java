@@ -46,7 +46,7 @@ public class GrannyEntity extends ZombieEntity {
 
     protected void dropSpecialItems(DamageSource p_213333_1_, int p_213333_2_, boolean p_213333_3_) {
         super.dropSpecialItems(p_213333_1_, p_213333_2_, p_213333_3_);
-        ItemStack sword = ModItems.GRANNY_SWORD.get().getDefaultInstance();
+        ItemStack sword = ModItems.GRANNY_BAT.get().getDefaultInstance();
         this.entityDropItem(sword);
     }
 
