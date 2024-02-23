@@ -5,7 +5,6 @@ import com.r4mble.grannymod.common.item.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -14,8 +13,6 @@ import net.minecraft.entity.ai.goal.ZombieAttackGoal;
 import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
@@ -41,7 +38,7 @@ public class GrannyEntity extends ZombieEntity {
     protected void registerGoals() {
         super.registerGoals();
         this.goalSelector.addGoal( 1, new NearestAttackableTargetGoal<>( this, PlayerEntity.class, true ) );
-        this.goalSelector.addGoal(4, new ZombieAttackGoal(this, 2.0D, false));
+        this.goalSelector.addGoal(2, new ZombieAttackGoal(this, 1.0D, false));
     }
 
     protected void dropSpecialItems(DamageSource p_213333_1_, int p_213333_2_, boolean p_213333_3_) {
@@ -64,33 +61,29 @@ public class GrannyEntity extends ZombieEntity {
     @Override
     protected SoundEvent getAmbientSound()
     {
-        return SoundEvents.ENTITY_HOGLIN_AMBIENT;
+        return SoundEvents.ENTITY_ZOMBIE_AMBIENT;
     }
 
 
     @Override
     protected SoundEvent getDeathSound()
     {
-        return SoundEvents.ENTITY_HOGLIN_DEATH;
+        return SoundEvents.ENTITY_ZOMBIE_DEATH;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn)
     {
-        return SoundEvents.ENTITY_IRON_GOLEM_HURT;
+        return SoundEvents.ENTITY_ZOMBIE_HURT;
     }
 
     @Override
     protected void playStepSound(BlockPos pos, BlockState blockIn)
     {
-        this.playSound(SoundEvents.ENTITY_HOGLIN_STEP, 0.20F, 0.5F);
+        this.playSound(SoundEvents.ENTITY_ZOMBIE_STEP, 0.20F, 0.5F);
     }
     @Override
     public boolean attackEntityAsMob(Entity entityIn) {
-        if (!super.attackEntityAsMob(entityIn)) {
-            return false;
-        } else {
-            return true;
-        }
+        return super.attackEntityAsMob(entityIn);
     }
 }

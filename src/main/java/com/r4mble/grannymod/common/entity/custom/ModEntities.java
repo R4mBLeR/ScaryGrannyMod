@@ -13,6 +13,6 @@ public class ModEntities {
             = DeferredRegister.create(ForgeRegistries.ENTITIES, GrannyMod.MOD_ID);
     public  static final RegistryObject<EntityType<GrannyEntity>> GRANNY = ENTITITES.register("granny",
             () -> EntityType.Builder.create(GrannyEntity::new,
-                    EntityClassification.MONSTER).size(1,2).immuneToFire()
+                    EntityClassification.MISC).size(1,2).immuneToFire()
                     .build(new ResourceLocation(GrannyMod.MOD_ID,"granny").toString()));
 }
