@@ -20,7 +20,7 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
-version = "1.16.5-1.0.2"
+version = "1.16.5-1.0.3"
 group = "com.r4mble.scarygrannymod"
 
 base {
