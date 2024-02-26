@@ -3,7 +3,6 @@ package com.r4mble.scarygrannymod.common.entity.custom;
 
 import com.r4mble.scarygrannymod.common.item.ModItems;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -46,12 +45,6 @@ public class GrannyEntity extends ZombieEntity {
         ItemStack sword = ModItems.GRANNY_BAT.get().getDefaultInstance();
         this.entityDropItem(sword);
     }
-
-    @Override
-    public boolean isDrowning()
-    {
-        return false;
-    }
     @Override
     protected int getExperiencePoints(PlayerEntity player)
     {
@@ -81,9 +74,5 @@ public class GrannyEntity extends ZombieEntity {
     protected void playStepSound(BlockPos pos, BlockState blockIn)
     {
         this.playSound(SoundEvents.ENTITY_ZOMBIE_STEP, 0.20F, 0.5F);
-    }
-    @Override
-    public boolean attackEntityAsMob(Entity entityIn) {
-        return super.attackEntityAsMob(entityIn);
     }
 }
