@@ -22,5 +22,5 @@ public class ModItems {
     public static final RegistryObject<Item> ASHES_DIAMOND = ITEMS.register("ashes_diamond",
             () -> new Item(basicProperties()));
     public static final RegistryObject<Item> GRANNY_BAT = ITEMS.register("granny_bat",
-            () -> new SwordItem(ItemTier.DIAMOND,10,1.6f, basicProperties()));
+            () -> new SwordItem(ItemTier.IRON,10,1.6f, basicProperties().defaultMaxDamage(100)));
     }
