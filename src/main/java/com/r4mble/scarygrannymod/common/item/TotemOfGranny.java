@@ -9,10 +9,10 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.world.World;
 
 public class TotemOfGranny extends Item {
-    public TotemOfGranny(Properties properties)
-    {
+    public TotemOfGranny(Properties properties) {
         super(properties);
     }
+
     @Override
     public ActionResultType onItemUseFirst(ItemStack stack, ItemUseContext context) {
         World world = context.getWorld();
@@ -23,7 +23,6 @@ public class TotemOfGranny extends Item {
         GrannyEntity granny = new GrannyEntity(ModEntities.GRANNY.get(), world);
         granny.moveForced(context.getHitVec());
         world.addEntity(granny);
-
-        return super.onItemUseFirst(stack,context);
+        return super.onItemUseFirst(stack, context);
     }
 }

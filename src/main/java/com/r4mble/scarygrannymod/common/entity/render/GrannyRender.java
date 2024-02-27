@@ -7,7 +7,7 @@ import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class GrannyRender extends MobRenderer<GrannyEntity, GrannyModel<GrannyEntity>>{
+public class GrannyRender extends MobRenderer<GrannyEntity, GrannyModel<GrannyEntity>> {
     protected static final ResourceLocation TEXTURE =
             new ResourceLocation(ScaryGrannyMod.MOD_ID, "textures/entity/granny.png");
 

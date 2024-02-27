@@ -9,10 +9,11 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModEntities {
-    public static  DeferredRegister<EntityType<?>> ENTITITES
+    public static DeferredRegister<EntityType<?>> ENTITITES
             = DeferredRegister.create(ForgeRegistries.ENTITIES, ScaryGrannyMod.MOD_ID);
-    public  static final RegistryObject<EntityType<GrannyEntity>> GRANNY = ENTITITES.register("granny",
+    public static final RegistryObject<EntityType<GrannyEntity>> GRANNY = ENTITITES.register("granny",
             () -> EntityType.Builder.create(GrannyEntity::new,
-                    EntityClassification.MISC).size(1,2).immuneToFire()
-                    .build(new ResourceLocation(ScaryGrannyMod.MOD_ID,"granny").toString()));
+                            EntityClassification.MISC).size(1, 2).immuneToFire()
+                    .build(new ResourceLocation(ScaryGrannyMod.MOD_ID, "granny").toString()));
 }
+
