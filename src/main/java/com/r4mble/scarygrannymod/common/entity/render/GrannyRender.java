@@ -16,7 +16,7 @@ public class GrannyRender extends MobRenderer<GrannyEntity, GrannyModel<GrannyEn
     }
 
     @Override
-    public ResourceLocation getEntityTexture(GrannyEntity entity) {
+    public ResourceLocation getTextureLocation(GrannyEntity entity) {
         return TEXTURE;
     }
 }

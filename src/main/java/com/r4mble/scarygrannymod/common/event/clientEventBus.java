@@ -13,6 +13,6 @@ import net.minecraftforge.fml.common.Mod;
 public class clientEventBus {
     @SubscribeEvent
     public static void addEntityAttributes(EntityAttributeCreationEvent event) {
-        event.put(ModEntities.GRANNY.get(), GrannyEntity.setCustomAttributes().create());
+        event.put(ModEntities.GRANNY.get(), GrannyEntity.setCustomAttributes().build());
     }
 }

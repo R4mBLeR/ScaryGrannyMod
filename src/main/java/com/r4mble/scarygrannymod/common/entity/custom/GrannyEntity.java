@@ -24,13 +24,13 @@ public class GrannyEntity extends MonsterEntity {
     }
 
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
-        return MobEntity.func_233666_p_()
-                .createMutableAttribute(Attributes.MAX_HEALTH, 75.00D)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.4D)
-                .createMutableAttribute(Attributes.ATTACK_DAMAGE, 10.00D)
-                .createMutableAttribute(Attributes.ARMOR, 3.00D)
-                .createMutableAttribute(Attributes.ATTACK_SPEED, 5.00D)
-                .createMutableAttribute(Attributes.FOLLOW_RANGE, 24.00D);
+        return MobEntity.createMobAttributes()
+                .add(Attributes.MAX_HEALTH, 75.00D)
+                .add(Attributes.MOVEMENT_SPEED, 0.4D)
+                .add(Attributes.ATTACK_DAMAGE, 10.00D)
+                .add(Attributes.ARMOR, 3.00D)
+                .add(Attributes.ATTACK_SPEED, 5.00D)
+                .add(Attributes.FOLLOW_RANGE, 24.00D);
     }
 
     @Override
@@ -47,36 +47,36 @@ public class GrannyEntity extends MonsterEntity {
 
     }
 
-    protected void dropSpecialItems(DamageSource p_213333_1_, int p_213333_2_, boolean p_213333_3_) {
-        super.dropSpecialItems(p_213333_1_, p_213333_2_, p_213333_3_);
+    protected void dropCustomDeathLoot(DamageSource p_213333_1_, int p_213333_2_, boolean p_213333_3_) {
+        super.dropCustomDeathLoot(p_213333_1_, p_213333_2_, p_213333_3_);
         ItemStack sword = ModItems.GRANNY_BAT.get().getDefaultInstance();
-        sword.setDamage(rand.nextInt(100));
-        this.entityDropItem(sword);
+        sword.setDamageValue(random.nextInt(100));
+        this.spawnAtLocation(sword);
     }
 
     @Override
-    protected int getExperiencePoints(PlayerEntity player) {
-        return 3 + this.world.rand.nextInt(300);
+    protected int getExperienceReward(PlayerEntity player) {
+        return 3 + this.level.random.nextInt(300);
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ENTITY_WITCH_AMBIENT;
+        return SoundEvents.WITCH_AMBIENT;
     }
 
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_WITCH_DEATH;
+        return SoundEvents.WITCH_DEATH;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundEvents.ENTITY_WITCH_HURT;
+        return SoundEvents.WITCH_HURT;
     }
 
     @Override
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
-        this.playSound(SoundEvents.ENTITY_ZOMBIE_STEP, 0.20F, 0.5F);
+        this.playSound(SoundEvents.ZOMBIE_STEP, 0.20F, 0.5F);
     }
 }

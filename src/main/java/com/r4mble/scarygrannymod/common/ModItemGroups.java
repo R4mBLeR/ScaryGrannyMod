@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 public class ModItemGroups {
     public static final ItemGroup GRANNY_MOD_TAB = new ItemGroup("mod_tab") {
         @Override
-        public ItemStack createIcon() {
+        public ItemStack makeIcon() {
             return new ItemStack(ModItems.ASHES.get());
         }
     };

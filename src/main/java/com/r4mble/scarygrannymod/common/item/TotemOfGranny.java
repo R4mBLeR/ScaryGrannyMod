@@ -15,14 +15,14 @@ public class TotemOfGranny extends Item {
 
     @Override
     public ActionResultType onItemUseFirst(ItemStack stack, ItemUseContext context) {
-        World world = context.getWorld();
-        ItemStack totem = context.getItem();
-        world.setRainStrength(10);
-        world.setThunderStrength(10);
+        World world = context.getLevel();
+        ItemStack totem = context.getItemInHand();
+        world.setRainLevel(10);
+        world.setThunderLevel(10);
         totem.setCount(0);
         GrannyEntity granny = new GrannyEntity(ModEntities.GRANNY.get(), world);
-        granny.moveForced(context.getHitVec());
-        world.addEntity(granny);
+        granny.moveTo(context.getClickLocation());
+        world.addFreshEntity(granny);
         return super.onItemUseFirst(stack, context);
     }
 }
