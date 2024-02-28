@@ -1,72 +1,67 @@
-package com.r4mble.scarygrannymod.common.entity.model;
+package com.r4mble.scarygrannymod.common.entity.model;// Made with Blockbench 4.9.4
+// Exported for Minecraft version 1.17 or later with Mojang mappings
+// Paste this class into your mod and generate all required imports
 
 
-import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.vertex.IVertexBuilder;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.r4mble.scarygrannymod.common.entity.custom.GrannyEntity;
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.resources.ResourceLocation;
 
-public class GrannyModel<T extends GrannyEntity> extends EntityModel<T> {
-    private final ModelRenderer head;
-    private final ModelRenderer body;
-    private final ModelRenderer rightArm;
-    private final ModelRenderer leftArm;
-    private final ModelRenderer leftLeg;
-    private final ModelRenderer rightLeg;
+public class GrannyModel<Type extends GrannyEntity> extends EntityModel<Type> {
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("scarygrannymod", "granny_entity"), "main");
+    private final ModelPart head;
+    private final ModelPart body;
+    private final ModelPart rightArm;
+    private final ModelPart leftArm;
+    private final ModelPart leftLeg;
+    private final ModelPart rightLeg;
 
+    public GrannyModel(ModelPart root) {
+        this.head = root.getChild("head");
+        this.body = root.getChild("body");
+        this.rightArm = root.getChild("rightArm");
+        this.leftArm = root.getChild("leftArm");
+        this.leftLeg = root.getChild("leftLeg");
+        this.rightLeg = root.getChild("rightLeg");
+    }
 
-    public GrannyModel() {
-        textureWidth = 64;
-        textureHeight = 64;
+    public static LayerDefinition createBodyLayer() {
+        MeshDefinition meshdefinition = new MeshDefinition();
+        PartDefinition partdefinition = meshdefinition.getRoot();
 
-        head = new ModelRenderer(this);
-        head.setRotationPoint(0.0F, 0.0F, 0.0F);
-        head.setTextureOffset(0, 0).addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, 0.0F, false);
+        PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
-        body = new ModelRenderer(this);
-        body.setRotationPoint(0.0F, 26.0F, 0.0F);
-        body.setTextureOffset(16, 16).addBox(-4.0F, -26.0F, -2.0F, 8.0F, 12.0F, 4.0F, 0.0F, false);
+        PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(16, 16).addBox(-4.0F, -26.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 26.0F, 0.0F));
 
-        rightArm = new ModelRenderer(this);
-        rightArm.setRotationPoint(-8.0F, -1.0F, -4.0F);
-        rightArm.setTextureOffset(40, 16).addBox(0.0F, 1.0F, 2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
+        PartDefinition rightArm = partdefinition.addOrReplaceChild("rightArm", CubeListBuilder.create().texOffs(40, 16).addBox(0.0F, 1.0F, 2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-8.0F, -1.0F, -4.0F));
 
-        leftArm = new ModelRenderer(this);
-        leftArm.setRotationPoint(8.0F, -1.0F, 0.0F);
-        leftArm.setTextureOffset(32, 48).addBox(-4.0F, 1.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
+        PartDefinition leftArm = partdefinition.addOrReplaceChild("leftArm", CubeListBuilder.create().texOffs(32, 48).addBox(-4.0F, 1.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(8.0F, -1.0F, 0.0F));
 
-        leftLeg = new ModelRenderer(this);
-        leftLeg.setRotationPoint(4.0F, 11.0F, 0.0F);
-        leftLeg.setTextureOffset(16, 48).addBox(-4.0F, 1.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
+        PartDefinition leftLeg = partdefinition.addOrReplaceChild("leftLeg", CubeListBuilder.create().texOffs(16, 48).addBox(-4.0F, 1.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, 11.0F, 0.0F));
 
-        rightLeg = new ModelRenderer(this);
-        rightLeg.setRotationPoint(-4.0F, 11.0F, 1.0F);
-        rightLeg.setTextureOffset(0, 16).addBox(0.0F, 1.0F, -3.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
+        PartDefinition rightLeg = partdefinition.addOrReplaceChild("rightLeg", CubeListBuilder.create().texOffs(0, 16).addBox(0.0F, 1.0F, -3.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.0F, 11.0F, 1.0F));
+
+        return LayerDefinition.create(meshdefinition, 64, 64);
     }
 
     @Override
-    public void setRotationAngles(GrannyEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        this.head.rotateAngleX = headPitch * ((float) Math.PI / 180F);
-        this.head.rotateAngleY = netHeadYaw * ((float) Math.PI / 180F);
-        this.rightLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
-        this.leftLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+    public void setupAnim(Type entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+
     }
 
     @Override
-    public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        head.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-        body.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-        rightArm.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-        leftArm.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-        leftLeg.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-        rightLeg.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-    }
-
-    public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-        modelRenderer.rotateAngleX = x;
-        modelRenderer.rotateAngleY = y;
-        modelRenderer.rotateAngleZ = z;
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+        head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+        body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+        rightArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+        leftArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+        leftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+        rightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
     }
 }
