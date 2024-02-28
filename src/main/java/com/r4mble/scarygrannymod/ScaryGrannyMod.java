@@ -61,7 +61,6 @@ public class ScaryGrannyMod {
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
-        RenderingRegistry.registerEntityRenderingHandler(ModEntities.GRANNY.get(), GrannyRender::new);
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {
