@@ -1,3 +1,6 @@
+https://www.curseforge.com/minecraft/mc-mods/scarygrannymod
+https://www.curseforge.com/minecraft/mc-mods/scarygrannymod
+https://www.curseforge.com/minecraft/mc-mods/scarygrannymod
 
 Source installation information for modders
 -------------------------------------------
