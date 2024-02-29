@@ -1,5 +1,6 @@
 package com.r4mble.scarygrannymod;
 
+import com.r4mble.scarygrannymod.common.ModItemTabs;
 import com.r4mble.scarygrannymod.common.entity.custom.ModEntities;
 import com.r4mble.scarygrannymod.common.item.ModItems;
 import net.minecraftforge.common.MinecraftForge;
@@ -20,6 +21,7 @@ public class ScaryGrannyMod {
     }
 
     private void ModRegister(IEventBus eventBus) {
+        ModItemTabs.MOD_TABS.register(eventBus);
         ModItems.ITEMS.register(eventBus);
         ModEntities.ENTITIES.register(eventBus);
     }

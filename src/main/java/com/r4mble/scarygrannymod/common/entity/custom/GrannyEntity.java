@@ -56,7 +56,7 @@ public class GrannyEntity extends Monster {
     }
 
     public int getExperienceReward() {
-        this.xpReward = 3 + this.level.random.nextInt(300);
+        this.xpReward = 3 + this.random.nextInt(300);
         return super.getExperienceReward();
     }
 

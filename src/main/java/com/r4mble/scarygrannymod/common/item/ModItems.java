@@ -12,15 +12,12 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ScaryGrannyMod.MOD_ID);
     public static final RegistryObject<Item> ASHES = ITEMS.register("ashes",
-            () -> new Item(basicProperties()));
+            () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> TOTEM_OF_GRANNY = ITEMS.register("totem_of_granny",
-            () -> new TotemOfGranny(basicProperties().stacksTo(1)));
+            () -> new TotemOfGranny(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> ASHES_DIAMOND = ITEMS.register("ashes_diamond",
-            () -> new Item(basicProperties()));
+        () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> GRANNY_BAT = ITEMS.register("granny_bat",
-            () -> new SwordItem(Tiers.IRON, 10, 1.6f, basicProperties().defaultDurability(100)));
+            () -> new SwordItem(Tiers.IRON, 10, 1.6f, new Item.Properties().defaultDurability(100)));
 
-    public static Item.Properties basicProperties() {
-        return new Item.Properties().tab(ModItemTabs.SCARY_GRANNY_MOD_TAB);
-    }
 }
