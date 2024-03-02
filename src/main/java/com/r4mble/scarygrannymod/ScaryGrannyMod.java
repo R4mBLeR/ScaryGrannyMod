@@ -46,8 +46,8 @@ public class ScaryGrannyMod {
 
     private void ModRegister(IEventBus eventBus) {
         ModItems.ITEMS.register(eventBus);
-        ModSounds.SOUNDS.register(eventBus);
         ModEntities.ENTITITES.register(eventBus);
+        ModSounds.SOUNDS.register(eventBus);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
