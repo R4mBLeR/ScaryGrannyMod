@@ -2,6 +2,7 @@ package com.r4mble.scarygrannymod.common.entity.custom;
 
 
 import com.r4mble.scarygrannymod.common.item.ModItems;
+import com.r4mble.scarygrannymod.common.util.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -68,7 +69,7 @@ public class GrannyEntity extends Monster {
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.WITCH_DEATH;
+        return ModSounds.GRANNY_DEATH.get();
     }
 
     @Override
