@@ -1,0 +1,9 @@
+{
+  "granny_death": {
+    "category": "master",
+    "subtitle": "sounds.scarygrannymod:granny_death",
+    "sounds": [
+      "scarygrannymod:granny_death"
+    ]
+  }
+}

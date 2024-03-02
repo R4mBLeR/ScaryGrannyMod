@@ -79,6 +79,6 @@ public class GrannyEntity extends Monster {
 
     @Override
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
-        this.playSound(ModSounds.GRANNY_STEPS.get(), 0.20F, 0.5F);
+        this.playSound(SoundEvents.ZOMBIE_STEP, 0.20F, 0.5F);
     }
 }

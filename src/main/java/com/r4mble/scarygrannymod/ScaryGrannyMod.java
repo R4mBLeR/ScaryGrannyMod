@@ -22,7 +22,7 @@ public class ScaryGrannyMod {
 
     private void ModRegister(IEventBus eventBus) {
         ModItems.ITEMS.register(eventBus);
-        ModSounds.SOUNDS.register(eventBus);
         ModEntities.ENTITIES.register(eventBus);
+        ModSounds.SOUNDS.register(eventBus);
     }
 }
