@@ -2,6 +2,7 @@ package com.r4mble.scarygrannymod.common.entity.custom;
 
 
 import com.r4mble.scarygrannymod.common.item.ModItems;
+import com.r4mble.scarygrannymod.common.util.ModSounds;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
@@ -67,7 +68,7 @@ public class GrannyEntity extends MonsterEntity {
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.WITCH_DEATH;
+        return ModSounds.GRANNY_DEATH.get();
     }
 
     @Override
@@ -77,6 +78,6 @@ public class GrannyEntity extends MonsterEntity {
 
     @Override
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
-        this.playSound(SoundEvents.ZOMBIE_STEP, 0.20F, 0.5F);
+        this.playSound(ModSounds.GRANNY_STEPS.get(), 0.20F, 0.5F);
     }
 }

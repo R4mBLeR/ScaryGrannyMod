@@ -6,11 +6,11 @@ plugins {
 }
 
 
-version = "1.16.5-1.0.4b"
-group = "com.r4mble.scarygrannymod"
+version = mod_version
+group = mod_group_id
 
 base {
-    archivesName = 'scarygrannymod'
+    archivesName = mod_id
 }
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.

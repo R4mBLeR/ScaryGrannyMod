@@ -3,6 +3,7 @@ package com.r4mble.scarygrannymod;
 import com.r4mble.scarygrannymod.common.entity.custom.ModEntities;
 import com.r4mble.scarygrannymod.common.entity.render.GrannyRender;
 import com.r4mble.scarygrannymod.common.item.ModItems;
+import com.r4mble.scarygrannymod.common.util.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -45,6 +46,7 @@ public class ScaryGrannyMod {
 
     private void ModRegister(IEventBus eventBus) {
         ModItems.ITEMS.register(eventBus);
+        ModSounds.SOUNDS.register(eventBus);
         ModEntities.ENTITITES.register(eventBus);
     }
 
