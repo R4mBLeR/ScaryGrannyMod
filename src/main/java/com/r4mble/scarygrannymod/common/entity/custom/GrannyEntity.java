@@ -2,10 +2,12 @@ package com.r4mble.scarygrannymod.common.entity.custom;
 
 
 import com.r4mble.scarygrannymod.common.item.ModItems;
-import net.minecraft.core.BlockPos;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.damagesource.DamageSource;
+import com.r4mble.scarygrannymod.common.util.ModSounds;
+import net.minecraft.block.BlockState;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -17,7 +19,6 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.state.BlockState;
 
 public class GrannyEntity extends Monster {
     public GrannyEntity(EntityType<? extends Monster> type, Level worldIn) {
@@ -68,7 +69,7 @@ public class GrannyEntity extends Monster {
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.WITCH_DEATH;
+        return ModSounds.GRANNY_DEATH.get();
     }
 
     @Override
@@ -78,6 +79,6 @@ public class GrannyEntity extends Monster {
 
     @Override
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
-        this.playSound(SoundEvents.ZOMBIE_STEP, 0.20F, 0.5F);
+        this.playSound(ModSounds.GRANNY_STEPS.get(), 0.20F, 0.5F);
     }
 }
