@@ -3,6 +3,7 @@ package com.r4mble.scarygrannymod;
 import com.r4mble.scarygrannymod.common.ModItemTabs;
 import com.r4mble.scarygrannymod.common.entity.custom.ModEntities;
 import com.r4mble.scarygrannymod.common.item.ModItems;
+import com.r4mble.scarygrannymod.common.util.ModSounds;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -24,5 +25,6 @@ public class ScaryGrannyMod {
         ModItemTabs.MOD_TABS.register(eventBus);
         ModItems.ITEMS.register(eventBus);
         ModEntities.ENTITIES.register(eventBus);
+        ModSounds.SOUNDS.register(eventBus);
     }
 }
