@@ -6,11 +6,11 @@ plugins {
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
-version = '1.20.2-1.0.4'
-group = 'com.r4mble.scarygrannymod'
+version = mod_version
+group = mod_group_id
 
 base {
-    archivesName = 'scarygrannymod'
+    archivesName = mod_id
 }
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
