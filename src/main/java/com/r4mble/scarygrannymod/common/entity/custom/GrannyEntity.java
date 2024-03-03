@@ -22,6 +22,7 @@ import net.minecraft.world.World;
 public class GrannyEntity extends MonsterEntity {
     public GrannyEntity(EntityType<? extends MonsterEntity> type, World worldIn) {
         super(type, worldIn);
+        this.xpReward = 300;
     }
 
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
@@ -53,11 +54,6 @@ public class GrannyEntity extends MonsterEntity {
         ItemStack sword = ModItems.GRANNY_BAT.get().getDefaultInstance();
         sword.setDamageValue(random.nextInt(100));
         this.spawnAtLocation(sword);
-    }
-
-    @Override
-    protected int getExperienceReward(PlayerEntity player) {
-        return 3 + this.level.random.nextInt(300);
     }
 
     @Override
