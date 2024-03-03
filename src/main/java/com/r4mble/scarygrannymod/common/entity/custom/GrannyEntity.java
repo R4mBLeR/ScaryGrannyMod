@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class GrannyEntity extends Monster {
     public GrannyEntity(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
+        this.xpReward = 300;
     }
 
     public static AttributeSupplier setCustomAttributes() {
@@ -56,16 +57,10 @@ public class GrannyEntity extends Monster {
         this.spawnAtLocation(sword);
     }
 
-    public int getExperienceReward() {
-        this.xpReward = 3 + this.level.random.nextInt(300);
-        return super.getExperienceReward();
-    }
-
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundEvents.WITCH_AMBIENT;
     }
-
 
     @Override
     protected SoundEvent getDeathSound() {
