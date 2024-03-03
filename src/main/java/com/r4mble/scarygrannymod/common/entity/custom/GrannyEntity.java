@@ -2,6 +2,7 @@ package com.r4mble.scarygrannymod.common.entity.custom;
 
 
 import com.r4mble.scarygrannymod.common.item.ModItems;
+import com.r4mble.scarygrannymod.common.util.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -22,6 +23,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class GrannyEntity extends Monster {
     public GrannyEntity(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
+        this.xpReward = 300;
     }
 
     public static AttributeSupplier setCustomAttributes() {
@@ -55,11 +57,6 @@ public class GrannyEntity extends Monster {
         this.spawnAtLocation(sword);
     }
 
-    public int getExperienceReward() {
-        this.xpReward = 3 + this.random.nextInt(300);
-        return super.getExperienceReward();
-    }
-
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundEvents.WITCH_AMBIENT;
@@ -68,7 +65,7 @@ public class GrannyEntity extends Monster {
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.WITCH_DEATH;
+        return ModSounds.GRANNY_DEATH.get();
     }
 
     @Override
