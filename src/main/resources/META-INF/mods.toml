@@ -2,11 +2,11 @@ modLoader="javafml"
 loaderVersion="${loader_version_range}"
 license="${mod_license}"
 [[mods]]
-modId="scarygrannymod"
+modId="${mod_id}"
 version="${mod_version}"
-displayName="ScaryGranny!"
-authors="R4mBLe_"
-description='''The mod adds scary Granny!'''
+displayName="${mod_name}"
+authors="${mod_authors}"
+description="${mod_description}"
 [[dependencies.${mod_id}]]
 modId="forge"
 mandatory=true
